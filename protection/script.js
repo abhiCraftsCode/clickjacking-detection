@@ -8,7 +8,7 @@ function detectIframeEmbedding() {
   if (window.top !== window.self) {
     console.warn("⚠️ Detected iframe embedding (Clickjacking warning)");
     const userChoice = confirm(
-      "⚠️ This page is being displayed in a suspicious way (possible clickjacking).\n\nDo you want to go to the original site?"
+      "⚠️ Possible clickjacking attack.\n\nDo you want to go to the original site?"
     );
     //detection + prevention by blocking or exposing.
     if (userChoice) {
@@ -34,9 +34,15 @@ function detectInvisibleIframe() {
     const opacity = parseFloat(styles.opacity);
     const pointerEvents = styles.pointerEvents;
     if (opacity < 0.1 || pointerEvents === "none") {
-      alert("⚠️ Suspicious iframe styling detected. Possible clickjacking.");
+      alert("⚠️ Suspicious iframe styling detected.");
+      return true;
       //only detecting no prevention
     }
   }
 }
 //detectInvisibleIframe(); //uncomment to run
+function protectJS() {
+  if (detectInvisibleIframe()) {
+    detectIframeEmbedding();
+  }
+}
