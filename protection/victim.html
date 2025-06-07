@@ -3,19 +3,98 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Victim Page</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>MyTechBlog</title>
+    <link rel="stylesheet" href="victim.css" />
   </head>
   <body>
-    <div>
-      <h1>This page rates the traveler.</h1>
-      <div class="center-container">
-        <button id="victim_btn">Rate</button>
-        <script src="script.js"></script>
-        <script>
-          protectJS();
-        </script>
+    <!-- Navigation Bar -->
+    <nav>
+      <ul class="nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Header -->
+    <header>
+      <h1>MyTechBlog</h1>
+      <p>Insights and Stories from the Tech World</p>
+    </header>
+
+    <!-- Main Blog Content -->
+    <main>
+      <article>
+        <div class="title">
+          <!-- Author Info -->
+          <h2>The Rise of Web Security Threats</h2>
+          <div class="author-box">
+            <img
+              src="https://media.gettyimages.com/id/1383890731/photo/young-man-listens-to-a-group-nearby.jpg?s=612x612&w=0&k=20&c=9Jh2YqVUfsVdIZzxb9jxCAwxpb-rDggGqgpMpn8L8uM="
+              alt="Author"
+              width="50"
+            />
+            <p class="meta">
+              Published by <a href="#">Abhishek</a> | June 5, 2025
+            </p>
+          </div>
+        </div>
+        <div class="content">
+          <p>
+            In today’s digital world, websites are vulnerable to a wide range of
+            attacks. Among them, clickjacking is one of the most deceptive...
+          </p>
+
+          <!-- Blog content continues... -->
+          <p>
+            Clickjacking tricks users into clicking something different from
+            what they perceive, leading to unintended actions such as liking a
+            post or submitting a form.
+          </p>
+        </div>
+        <div class="blogEnd">
+          <!-- Tags -->
+          <p class="tags">
+            Tags: <a href="#">Security</a>, <a href="#">Clickjacking</a>,
+            <a href="#">Web</a>
+          </p>
+
+          <!-- Interaction Buttons -->
+          <div class="interaction">
+            <a class="prev" href="#">← Previous</a>
+            <div>
+              <button id="like_btn">👍 Like</button>
+              <button>💬 Comment</button>
+            </div>
+            <a class="next" href="#">Next →</a>
+          </div>
+        </div>
+      </article>
+      <!-- Related Posts -->
+      <div class="related-posts">
+        <h3>Related Articles</h3>
+        <ul>
+          <li><a href="#">5 Browser Vulnerabilities You Didn't Know</a></li>
+          <li><a href="#">Protecting Your Site from Frame Injection</a></li>
+          <li><a href="#">Same-Origin Policy Explained</a></li>
+        </ul>
       </div>
-    </div>
+      <!-- Comments Section -->
+      <div class="comments">
+        <h3>Comments</h3>
+        <p><strong>Amit:</strong> Great explanation of clickjacking!</p>
+        <p><strong>Sara:</strong> I had no idea this attack existed 😮</p>
+        <p><strong>Ravi:</strong> Looking forward to more!</p>
+      </div>
+    </main>
+    <!-- Footer -->
+    <footer>
+      <p style="font-size: 0.8em; color: gray">
+        This blog uses cookies to improve your reading experience.
+      </p>
+      <p>&copy; 2025 MyTechBlog</p>
+    </footer>
+    <script src="script.js"></script>
   </body>
 </html>

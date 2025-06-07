@@ -1,7 +1,29 @@
-//Performing clickjacking
-document.getElementById("victim_btn").addEventListener("click", rate);
-function rate() {
-  alert("Thanks for your rating!");
+document.querySelector(".interaction").addEventListener("click", function (e) {
+  if (!protected()) return;
+  const btn = e.target.closest("button");
+  if (!btn) return;
+  // Ensure the clicked element is a button
+  if (btn.tagName !== "BUTTON") return;
+  const id = btn.id;
+  // Common pop animation
+  btn.classList.add("pop");
+  btn.addEventListener("animationend", function removePop() {
+    btn.classList.remove("pop");
+    btn.removeEventListener("animationend", removePop);
+  });
+  // Handle buttons by ID
+  if (id === "like_btn") {
+    like(btn);
+  }
+});
+function like(btn) {
+  btn.classList.toggle("liked");
+  if (btn.classList.contains("liked")) {
+    btn.textContent = "❤️ Liked";
+    console.log("Thanks for liking the blog.");
+  } else {
+    btn.textContent = "👍 Like";
+  }
 }
 // Detection Method 1: Check if the page is inside an iframe
 function detectIframeEmbedding() {
@@ -23,9 +45,6 @@ function detectIframeEmbedding() {
     }
   }
 }
-//uncomment the next line to run detection method
-//detectIframeEmbedding();
-
 // Detection Method 2: Check if the iframe has suspicious styling
 function detectInvisibleIframe() {
   const iframeEl = window.frameElement; //if iframe exists
@@ -40,9 +59,11 @@ function detectInvisibleIframe() {
     }
   }
 }
-//detectInvisibleIframe(); //uncomment to run
-function protectJS() {
+/*protection*/
+function protected() {
   if (detectInvisibleIframe()) {
     detectIframeEmbedding();
+    return false;
   }
+  return true;
 }

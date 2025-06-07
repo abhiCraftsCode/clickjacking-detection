@@ -1,0 +1,205 @@
+/* Reset & Base Styles */
+* {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+/* Navigation Bar */
+nav {
+  background-color: #222;
+  padding: 5px 10px;
+}
+.nav {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+}
+.nav li {
+  margin: 0 15px;
+}
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+.nav a:hover {
+  text-decoration: underline;
+}
+/* Header */
+header {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  border-bottom: 3px solid #007bff;
+}
+header h1 {
+  font-size: 1.8em;
+}
+header p {
+  font-size: 0.8em;
+  color: #ccc;
+}
+/* Main Content */
+main {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 2.5fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+}
+article {
+  margin: 15px 20px;
+  padding: 0 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  grid-row: 1/-1;
+  display: grid;
+  gap: 0;
+}
+.title {
+  margin: 5px 0;
+  font-size: 1.5em;
+  align-self: start;
+}
+.meta {
+  color: rgb(85, 85, 85);
+  font-size: 0.5em;
+}
+/* Author Box */
+.author-box {
+  display: flex;
+  align-items: center;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+}
+.author-box img {
+  border-radius: 50%;
+  margin-right: 15px;
+}
+.contnet {
+  align-self: center;
+}
+.blogEnd {
+  align-self: end;
+}
+/* Tags */
+.tags {
+  margin-top: 10px;
+}
+.tags a {
+  background: #e0e0e0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-right: 5px;
+  color: #333;
+  font-size: 0.9em;
+}
+/* Like & Comment Buttons */
+.interaction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  margin: 20px 5px;
+}
+.interaction button {
+  padding: 10px 20px;
+  background-color: #333333;
+  margin: 0 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+.interaction button:hover {
+  background-color: #0056b3;
+}
+.interaction button.liked {
+  background-color: #fa7984; /* red liked state */
+}
+
+/* Pop animation */
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.interaction button.pop {
+  animation: pop 0.3s ease;
+}
+
+.interaction a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+.interaction a:hover {
+  text-decoration: underline;
+}
+/* Related Posts */
+.related-posts {
+  align-self: top;
+  margin: 15px 20px;
+  background-color: rgb(210, 210, 210);
+  padding: 15px;
+  border-radius: 8px;
+  max-width: 300px;
+}
+.related-posts h3 {
+  margin-bottom: 10px;
+}
+.related-posts ul {
+  list-style: none;
+  padding-left: 0;
+}
+.related-posts li {
+  margin-bottom: 8px;
+}
+.related-posts a {
+  color: #007bff;
+  text-decoration: none;
+}
+.related-posts a:hover {
+  text-decoration: underline;
+}
+/* Comments Section */
+.comments {
+  align-self: top;
+  margin: 15px 20px;
+  background-color: rgb(210, 210, 210);
+  padding: 15px;
+  border-radius: 8px;
+  max-width: 300px;
+}
+.comments h3 {
+  margin-bottom: 10px;
+}
+.comments p {
+  margin-bottom: 8px;
+}
+
+/* Footer */
+footer {
+  background-color: #222;
+  color: #ccc;
+  text-align: center;
+  padding: 10px;
+  font-size: 1em;
+  border-top: 3px solid #007bff;
+}

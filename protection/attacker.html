@@ -2,20 +2,51 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
-    <title>Attacker Page</title>
+    <title>MyTechGiveaway</title>
+    <link rel="stylesheet" href="attacker.css" />
   </head>
   <body>
-    <div>
-      <h1>Congratulations!</h1>
-      <h3>You have won a lottery to Switzerland.</h3>
-      <img src="../assets/i1.jpg" alt="Load failure" />
+    <div class="frame-wrapper">
+      <iframe src="victim.html"></iframe>
+      <!-- Visible Content -->
+      <div class="clickbait-content">
+        <img
+          src="https://dummyimage.com/200x50/007bff/ffffff&text=MyTechGiveaway"
+          alt="Logo"
+          class="logo"
+        />
+        <h1>🎉 You're Invited!</h1>
+        <p>You've qualified for our exclusive tech drop event!</p>
+        <img
+          src="https://dummyimage.com/250x200/eeeeee/000000&text=Free+Phone"
+          alt="Prize"
+          class="prize-img"
+        />
+        <p class="timer">Offer expires in: <span id="countdown">04:59</span></p>
+        <button class="fake-btn">Claim Now</button>
+
+        <div class="testimonials">
+          <p><strong>Ravi:</strong> Just claimed mine. Fast & easy!</p>
+          <p><strong>Sneha:</strong> I didn’t believe it at first 😍</p>
+          <p><strong>Vikram:</strong> Thanks MyTechGiveaway!</p>
+        </div>
+      </div>
     </div>
-    <div class="center-container">
-      <button id="fake_btn">Click Me</button>
-      <iframe id="attack_frame" src="victim.html"></iframe>
-    </div>
+
+    <script>
+      let seconds = 299;
+      const timer = document.getElementById("countdown");
+
+      setInterval(() => {
+        if (seconds >= 0) {
+          const m = Math.floor(seconds / 60);
+          const s = seconds % 60;
+          timer.textContent = `${String(m).padStart(2, "0")}:${String(
+            s
+          ).padStart(2, "0")}`;
+          seconds--;
+        }
+      }, 1000);
+    </script>
   </body>
 </html>
